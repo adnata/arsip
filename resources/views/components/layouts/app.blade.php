@@ -24,6 +24,42 @@
         body {
             font-feature-settings: "cv03", "cv04", "cv11";
         }
+
+        .loading-container {
+    position: fixed;
+    top: 50%; /* Menempatkan container di tengah vertikal */
+    left: 50%; /* Menempatkan container di tengah horizontal */
+    transform: translate(-50%, -50%); /* Menyesuaikan posisi container agar berada di tengah */
+    display: flex; /* Menggunakan flexbox untuk menyusun elemen secara berdampingan */
+    align-items: center; /* Mengatur vertikal alignment ke center */
+}
+
+.loading-text {
+    margin-right: 10px; /* Memberikan jarak antara teks dan spinner */
+}
+
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #011902;
+    border-radius: 50%;
+    width: 27px;
+    height: 27px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Media query untuk perangkat seluler dengan lebar maksimum 768px */
+@media (max-width: 768px) {
+    .loading-spinner {
+        width: 20px; /* Ubah ukuran indikator loading untuk layar seluler */
+        height: 20px; /* Ubah ukuran indikator loading untuk layar seluler */
+    }
+}
+
     </style>
 </head>
 
@@ -98,6 +134,16 @@
                                         <a class="dropdown-item {{ request()->is('arsip') ? 'active' : '' }}"
                                             href="./arsip">
                                             Arsip
+                                        </a>
+
+                                        <a class="dropdown-item {{ request()->is('integrated.npd-dinas') ? 'active' : '' }}"
+                                            href="/integrated/npd-dinas">
+                                            Arsip NPD Dinas
+                                        </a>
+
+                                        <a class="dropdown-item {{ request()->is('integrated.npd-dprd') ? 'active' : '' }}"
+                                            href="/integrated/npd-dprd">
+                                            Arsip NPD Dprd
                                         </a>
                                     </div>
                                 </div>

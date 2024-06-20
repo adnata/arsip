@@ -15,7 +15,6 @@ class AppLayout extends Component
     public function __construct($title)
     {
         $this->title = $title;
-        dd($this->title);
     }
 
     /**

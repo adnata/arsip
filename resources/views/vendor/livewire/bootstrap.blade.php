@@ -66,7 +66,8 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                                 wire:key="paginator-{{ $paginator->getPageName() }}-page-{{ $page }}"><button
                                     type="button" class="page-link"
                                     wire:click="gotoPage({{ $page }}, '{{ $paginator->getPageName() }}')"
-                                    x-on:click="{{ $scrollIntoViewJsSnippet }}">{{ $page }}</button></li>
+                                    x-on:click="{{ $scrollIntoViewJsSnippet }}"
+                                    wire:loading.attr="disabled" >{{ $page }}</button></li>
                         @endif
                     @endforeach
                 @endif
